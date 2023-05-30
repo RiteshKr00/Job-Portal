@@ -110,6 +110,7 @@ const Profile = (props) => {
   const [open, setOpen] = useState(false);
 
   const [profileDetails, setProfileDetails] = useState({
+    _id: "",
     name: "",
     education: [],
     skills: [],
@@ -277,12 +278,13 @@ const Profile = (props) => {
                 />
               </Grid>
               <Grid item>
-                <FileUploadInput
+              <FileUploadInput
                   className={classes.inputBox}
                   label="Resume (.pdf)"
                   icon={<DescriptionIcon />}
                   uploadTo={apiList.uploadResume}
                   handleInput={handleInput}
+                  userId={profileDetails._id}
                   identifier={"resume"}
                 />
               </Grid>

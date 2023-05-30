@@ -462,7 +462,7 @@ const ApplicationTile = (props) => {
       application.jobApplicant.resume &&
       application.jobApplicant.resume !== ""
     ) {
-      const address = `${server}${application.jobApplicant.resume}`;
+      const address = `${server}/host/resume/${application.jobApplicant.resume}`;
       console.log(address);
       axios(address, {
         method: "GET",

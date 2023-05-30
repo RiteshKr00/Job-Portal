@@ -24,12 +24,8 @@ passport.use(
       usernameField: "email",
       passReqToCallback: true,
     },
-    (req, email, password, done, res) => {
-      // console.log(email, password);
-      User.findOne({ email: email }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
+    (req, email, password, done) => {
+      User.findOne({ email: email }).then((user) => {
         if (!user) {
           return done(null, false, {
             message: "User does not exist",

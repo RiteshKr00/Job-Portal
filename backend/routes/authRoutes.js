@@ -66,10 +66,12 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res, next) => {
+  console.log(req.body);
   passport.authenticate(
     "local",
     { session: false },
     function (err, user, info) {
+      console.log("--------------------------------", user);
       if (err) {
         return next(err);
       }
@@ -79,6 +81,7 @@ router.post("/login", (req, res, next) => {
       }
       // Token
       const token = jwt.sign({ _id: user._id }, authKeys.jwtSecretKey);
+      console.log(user);
       res.json({
         token: token,
         type: user.type,

@@ -8,15 +8,16 @@ import { SetPopupContext } from "../App";
 const FileUploadInput = (props) => {
   const setPopup = useContext(SetPopupContext);
 
-  const { uploadTo, identifier, handleInput } = props;
-
+  const { uploadTo, identifier, handleInput, userId } = props;
+  console.log(userId, "++++++++++++");
   const [file, setFile] = useState("");
   const [uploadPercentage, setUploadPercentage] = useState(0);
 
   const handleUpload = () => {
-    console.log(file);
+    console.log(userId,"-----------------------------------------------------------");
     const data = new FormData();
     data.append("file", file);
+    data.append("userid", userId); // Replace `userId` with the actual user ID value
     Axios.post(uploadTo, data, {
       headers: {
         "Content-Type": "multipart/form-data",

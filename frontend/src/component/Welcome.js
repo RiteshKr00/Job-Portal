@@ -1,6 +1,8 @@
 import { Grid, Typography } from "@material-ui/core";
+import background from "../job.jpg";
 
 const Welcome = (props) => {
+
   return (
     <Grid
       container
@@ -8,7 +10,10 @@ const Welcome = (props) => {
       direction="column"
       alignItems="center"
       justify="center"
-      style={{ padding: "30px", minHeight: "93vh" }}
+      style={{ padding: "30px", minHeight: "93vh", backgroundImage: `url(${background})`,
+      backgroundSize: "cover",
+      height: "60vh",
+      color: "#f5f5f5" }}
     >
       <Grid item>
         <Typography variant="h2">Welcome to Job Portal</Typography>
